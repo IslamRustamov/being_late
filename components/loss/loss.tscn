@@ -1,0 +1,126 @@
+[gd_scene load_steps=8 format=3 uid="uid://b0g8sp8ak0ipy"]
+
+[ext_resource type="Texture2D" uid="uid://bhjlarexdpe84" path="res://assets/sprites/loss.png" id="1_fw570"]
+[ext_resource type="Script" path="res://components/loss/loss.gd" id="1_rfthd"]
+[ext_resource type="FontFile" uid="uid://bw2kmoygcoqte" path="res://assets/font/fffforward.ttf" id="2_m6b0a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do7rq"]
+bg_color = Color(0, 0, 0, 0.545098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3o3f"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kylqo"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kp8k4"]
+bg_color = Color(0.174626, 0.174626, 0.174626, 1)
+
+[node name="Loss" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rfthd")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_do7rq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Container" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Container"]
+texture = ExtResource("1_fw570")
+centered = false
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Control"]
+z_index = 1
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 0
+offset_right = 25.0
+offset_bottom = 25.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x3o3f")
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/Control"]
+z_index = 1
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x3o3f")
+
+[node name="Panel3" type="Panel" parent="VBoxContainer/Control"]
+z_index = 1
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_right = 25.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x3o3f")
+
+[node name="Panel4" type="Panel" parent="VBoxContainer/Control"]
+z_index = 1
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x3o3f")
+
+[node name="Button" type="Button" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_m6b0a")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_kylqo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kp8k4")
+text = "RESTART"
+
+[connection signal="pressed" from="VBoxContainer/Control/Button" to="." method="_on_button_pressed"]

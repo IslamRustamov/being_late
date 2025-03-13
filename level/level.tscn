@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnpxb8yi0dple"]
+
+[ext_resource type="Script" path="res://level/level.gd" id="1_42mtc"]
+[ext_resource type="PackedScene" uid="uid://ck6lofge3misj" path="res://components/bar/bar.tscn" id="1_ks1o6"]
+[ext_resource type="PackedScene" uid="uid://8iqfe3hk474i" path="res://components/timer/countdowner.tscn" id="3_r7nn1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqak2"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Level" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_42mtc")
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lqak2")
+
+[node name="Bar" parent="." instance=ExtResource("1_ks1o6")]
+layout_mode = 1
+offset_bottom = 100.0
+
+[node name="Countdowner" parent="." instance=ExtResource("3_r7nn1")]
+layout_mode = 1
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(570, 825)
+
+[node name="Panel" type="Panel" parent="Node2D"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_default_cursor_shape = 2
+
+[connection signal="bar_filled" from="Bar" to="." method="_on_bar_bar_filled"]
+[connection signal="time_out" from="Countdowner" to="." method="_on_countdowner_time_out"]
+[connection signal="gui_input" from="Node2D/Panel" to="." method="_on_panel_gui_input"]
