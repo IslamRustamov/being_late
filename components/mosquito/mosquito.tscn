@@ -1,0 +1,77 @@
+[gd_scene load_steps=16 format=3 uid="uid://b4bw8lfxufr6e"]
+
+[ext_resource type="Script" path="res://components/mosquito/mosquito.gd" id="1_8k6dp"]
+[ext_resource type="Texture2D" uid="uid://bh3ixvsbfgwx7" path="res://assets/sprites/mosquito.png" id="1_vf66r"]
+[ext_resource type="Texture2D" uid="uid://by81q7234507q" path="res://assets/sprites/explosion/explosion-d1.png" id="3_rvu0a"]
+[ext_resource type="Texture2D" uid="uid://d15xndnpwxof" path="res://assets/sprites/explosion/explosion-d2.png" id="4_o0fip"]
+[ext_resource type="Texture2D" uid="uid://dm1if14korvd1" path="res://assets/sprites/explosion/explosion-d3.png" id="5_d2hi7"]
+[ext_resource type="Texture2D" uid="uid://b8n37mbghksqc" path="res://assets/sprites/explosion/explosion-d4.png" id="6_4kadg"]
+[ext_resource type="Texture2D" uid="uid://c0mwomhujixue" path="res://assets/sprites/explosion/explosion-d5.png" id="7_krrsu"]
+[ext_resource type="Texture2D" uid="uid://hwt8wusk5eso" path="res://assets/sprites/explosion/explosion-d6.png" id="8_3p3xg"]
+[ext_resource type="Texture2D" uid="uid://nuvigo23q072" path="res://assets/sprites/explosion/explosion-d7.png" id="9_r3o3c"]
+[ext_resource type="Texture2D" uid="uid://xlhno3c0xaix" path="res://assets/sprites/explosion/explosion-d8.png" id="10_r8ibw"]
+[ext_resource type="Texture2D" uid="uid://daw1wjq4pkc6f" path="res://assets/sprites/explosion/explosion-d9.png" id="11_4opvx"]
+[ext_resource type="Texture2D" uid="uid://dp04oks60yk2n" path="res://assets/sprites/explosion/explosion-d10.png" id="12_y2r6n"]
+[ext_resource type="Texture2D" uid="uid://iuy4xnl3s5rc" path="res://assets/sprites/explosion/explosion-d11.png" id="13_j2tx1"]
+[ext_resource type="Texture2D" uid="uid://b00jyixffcsif" path="res://assets/sprites/explosion/explosion-d12.png" id="14_bdbi4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6p76s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rvu0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o0fip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d2hi7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4kadg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_krrsu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3p3xg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_r3o3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_r8ibw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4opvx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_y2r6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_j2tx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bdbi4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="Mosquito" type="Node2D" groups=["mosquitos"]]
+script = ExtResource("1_8k6dp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vf66r")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_6p76s")
+frame = 11
+frame_progress = 1.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

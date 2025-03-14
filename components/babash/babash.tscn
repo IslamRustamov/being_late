@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1ttfneukjryd"]
+
+[ext_resource type="Texture2D" uid="uid://3rum5ih06wod" path="res://assets/sprites/babash.png" id="1_1pokc"]
+
+[node name="Babash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.758, 1.758)
+texture = ExtResource("1_1pokc")
+centered = false

@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://yq4hl7tobmsl"]
+
+[ext_resource type="Script" path="res://components/mosquito_spawner/mosquito_spawner.gd" id="1_x2568"]
+[ext_resource type="FontFile" uid="uid://bw2kmoygcoqte" path="res://assets/font/fffforward.ttf" id="2_boqke"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3817"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0lie"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4n2o"]
+bg_color = Color(0.174626, 0.174626, 0.174626, 1)
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(850, 150)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_x2568")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 150
+
+[node name="Control" type="Control" parent="MarginContainer"]
+custom_minimum_size = Vector2(850, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="MarginContainer/Control"]
+z_index = 1
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+offset_right = 25.0
+offset_bottom = 25.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y3817")
+
+[node name="Panel2" type="Panel" parent="MarginContainer/Control"]
+z_index = 1
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y3817")
+
+[node name="Panel3" type="Panel" parent="MarginContainer/Control"]
+z_index = 1
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_right = 25.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y3817")
+
+[node name="Panel4" type="Panel" parent="MarginContainer/Control"]
+z_index = 1
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y3817")
+
+[node name="Button" type="Button" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_boqke")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0lie")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e4n2o")
+text = "SPAWN A MOSQUITO"
+
+[connection signal="pressed" from="MarginContainer/Control/Button" to="." method="_on_button_pressed"]

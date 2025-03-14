@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://evuhwattptqn"]
+
+[ext_resource type="Script" path="res://components/right_eye/right_eye.gd" id="1_5j3jv"]
+[ext_resource type="Texture2D" uid="uid://dt64mfxy3f5no" path="res://assets/sprites/right_eye/right_eye_1.png" id="2_lg4qk"]
+[ext_resource type="Texture2D" uid="uid://ygvuubp5lr1l" path="res://assets/sprites/right_eye/right_eye_2.png" id="3_dal3x"]
+[ext_resource type="Texture2D" uid="uid://otjfqarwn3gb" path="res://assets/sprites/right_eye/right_eye_3.png" id="4_hswom"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x8ttu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lg4qk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dal3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hswom")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[node name="RightEye" type="Node2D"]
+script = ExtResource("1_5j3jv")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 160.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+sprite_frames = SubResource("SpriteFrames_x8ttu")
+centered = false
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

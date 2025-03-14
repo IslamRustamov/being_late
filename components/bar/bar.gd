@@ -8,7 +8,7 @@ signal bar_filled
 func reset_progress():
 	progress_bar.value = 0
 
-func add_progress(value: int):
+func add_progress(value: float):
 	progress_bar.value += value
 
 func _on_progress_bar_value_changed(value):

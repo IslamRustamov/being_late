@@ -6,7 +6,7 @@ signal time_out
 @onready var timer: Timer = $Timer
 @onready var time_text: Label = $HBoxContainer/Label2
 
-const INITIAL_MINUTES = 1
+const INITIAL_MINUTES = 15
 const INITIAL_SECONDS = 0
 
 var minutes = INITIAL_MINUTES
