@@ -1,0 +1,130 @@
+[gd_scene load_steps=7 format=3 uid="uid://bf8yadka31dby"]
+
+[ext_resource type="Texture2D" uid="uid://br1cpasbbmgc8" path="res://assets/sprites/can_of_peas.png" id="1_2msao"]
+[ext_resource type="Script" path="res://components/can_of_peas/can_of_peas.gd" id="1_capkc"]
+[ext_resource type="FontFile" uid="uid://bw2kmoygcoqte" path="res://assets/font/fffforward.ttf" id="2_gjr2u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmhw8"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xteg7"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3b3x"]
+bg_color = Color(0.174626, 0.174626, 0.174626, 1)
+
+[node name="CanOfPeas" type="Control"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -168.5
+offset_bottom = 168.5
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_capkc")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -168.5
+offset_bottom = 168.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 37
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/Control"]
+z_index = 1
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+offset_right = 25.0
+offset_bottom = 25.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pmhw8")
+
+[node name="Panel2" type="Panel" parent="MarginContainer/VBoxContainer/Control"]
+z_index = 1
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pmhw8")
+
+[node name="Panel3" type="Panel" parent="MarginContainer/VBoxContainer/Control"]
+z_index = 1
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_right = 25.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pmhw8")
+
+[node name="Panel4" type="Panel" parent="MarginContainer/VBoxContainer/Control"]
+z_index = 1
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pmhw8")
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_gjr2u")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_xteg7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p3b3x")
+text = "throw peas"
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/Control2"]
+texture = ExtResource("1_2msao")
+centered = false
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Control/Button" to="." method="_on_button_pressed"]

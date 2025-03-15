@@ -39,15 +39,14 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="Node2D" type="Node2D" parent="."]
-visible = false
 position = Vector2(570, 825)
 
 [node name="Panel" type="Panel" parent="Node2D"]
 custom_minimum_size = Vector2(100, 100)
-offset_left = -55.0
-offset_top = -29.0
-offset_right = 45.0
-offset_bottom = 71.0
+offset_left = -22.0
+offset_top = -8.0
+offset_right = 173.0
+offset_bottom = 201.0
 mouse_default_cursor_shape = 2
 
 [node name="LeftEye" parent="." instance=ExtResource("5_j8hlu")]
@@ -60,6 +59,14 @@ position = Vector2(953, 565)
 
 [node name="MosquitoButtonSpawnerTimer" type="Timer" parent="."]
 
+[node name="CanOfPeasTimer" type="Timer" parent="."]
+
+[node name="BabashPeasTimer" type="Timer" parent="."]
+
+[node name="RadioAppearanceTimer" type="Timer" parent="."]
+
+[node name="BabashAngryTimer" type="Timer" parent="."]
+
 [connection signal="bar_filled" from="Bar" to="." method="_on_bar_bar_filled"]
 [connection signal="time_out" from="Countdowner" to="." method="_on_countdowner_time_out"]
 [connection signal="gui_input" from="Node2D/Panel" to="." method="_on_panel_gui_input"]
@@ -67,3 +74,7 @@ position = Vector2(953, 565)
 [connection signal="right_eye_clicked" from="RightEye" to="." method="_on_right_eye_right_eye_clicked"]
 [connection signal="timeout" from="MosquitoCounterTimer" to="." method="_on_mosquito_timer_timeout"]
 [connection signal="timeout" from="MosquitoButtonSpawnerTimer" to="." method="_on_mosquito_button_spawner_timer_timeout"]
+[connection signal="timeout" from="CanOfPeasTimer" to="." method="_on_can_of_peas_timer_timeout"]
+[connection signal="timeout" from="BabashPeasTimer" to="." method="_on_babash_peas_timer_timeout"]
+[connection signal="timeout" from="RadioAppearanceTimer" to="." method="_on_radio_appearance_timer_timeout"]
+[connection signal="timeout" from="BabashAngryTimer" to="." method="_on_babash_angry_timer_timeout"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1ttfneukjryd"]
+[gd_scene load_steps=3 format=3 uid="uid://d1ttfneukjryd"]
 
-[ext_resource type="Texture2D" uid="uid://3rum5ih06wod" path="res://assets/sprites/babash.png" id="1_1pokc"]
+[ext_resource type="Script" path="res://components/babash/babash.gd" id="1_l44xl"]
+[ext_resource type="Texture2D" uid="uid://3rum5ih06wod" path="res://assets/sprites/babash/babash.png" id="2_a8k3g"]
 
 [node name="Babash" type="Control"]
 layout_mode = 3
@@ -11,8 +12,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_l44xl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.758, 1.758)
-texture = ExtResource("1_1pokc")
+texture = ExtResource("2_a8k3g")
 centered = false

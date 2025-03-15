@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3rum5ih06wod"
-path="res://.godot/imported/babash.png-303061f6e2a0b1478cc753b65a50a569.ctex"
+uid="uid://br1cpasbbmgc8"
+path="res://.godot/imported/can_of_peas.png-f1a68cb1e48642c3d56c6e74dc69dbb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/babash.png"
-dest_files=["res://.godot/imported/babash.png-303061f6e2a0b1478cc753b65a50a569.ctex"]
+source_file="res://assets/sprites/can_of_peas.png"
+dest_files=["res://.godot/imported/can_of_peas.png-f1a68cb1e48642c3d56c6e74dc69dbb7.ctex"]
 
 [params]
 
