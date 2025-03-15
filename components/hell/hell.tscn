@@ -1,0 +1,206 @@
+[gd_scene load_steps=23 format=3 uid="uid://dnwxvj5haj5o3"]
+
+[ext_resource type="Script" path="res://components/hell/hell.gd" id="1_q5oxy"]
+[ext_resource type="FontFile" uid="uid://bw2kmoygcoqte" path="res://assets/font/fffforward.ttf" id="2_0pi21"]
+[ext_resource type="Texture2D" uid="uid://c1qpk28kncqqo" path="res://assets/sprites/hell.png" id="3_a07ha"]
+[ext_resource type="Texture2D" uid="uid://cuiy8njpirxo8" path="res://assets/sprites/AMCM_Steve.png" id="3_c8mgh"]
+[ext_resource type="Texture2D" uid="uid://by81q7234507q" path="res://assets/sprites/explosion/explosion-d1.png" id="3_jqc3e"]
+[ext_resource type="Texture2D" uid="uid://d15xndnpwxof" path="res://assets/sprites/explosion/explosion-d2.png" id="4_en1me"]
+[ext_resource type="Texture2D" uid="uid://dm1if14korvd1" path="res://assets/sprites/explosion/explosion-d3.png" id="5_7ycc0"]
+[ext_resource type="AudioStream" uid="uid://btj145x2887an" path="res://assets/sounds/scary_sting.ogg" id="5_j3kxn"]
+[ext_resource type="AudioStream" uid="uid://dinx20dsj6kvt" path="res://assets/sounds/jack_black.ogg" id="6_6mfc6"]
+[ext_resource type="Texture2D" uid="uid://b8n37mbghksqc" path="res://assets/sprites/explosion/explosion-d4.png" id="6_i3nxp"]
+[ext_resource type="Texture2D" uid="uid://c0mwomhujixue" path="res://assets/sprites/explosion/explosion-d5.png" id="7_krrxm"]
+[ext_resource type="Texture2D" uid="uid://hwt8wusk5eso" path="res://assets/sprites/explosion/explosion-d6.png" id="8_g6sie"]
+[ext_resource type="Texture2D" uid="uid://nuvigo23q072" path="res://assets/sprites/explosion/explosion-d7.png" id="9_rtwsb"]
+[ext_resource type="Texture2D" uid="uid://xlhno3c0xaix" path="res://assets/sprites/explosion/explosion-d8.png" id="10_kayke"]
+[ext_resource type="Texture2D" uid="uid://daw1wjq4pkc6f" path="res://assets/sprites/explosion/explosion-d9.png" id="11_lhle5"]
+[ext_resource type="Texture2D" uid="uid://dp04oks60yk2n" path="res://assets/sprites/explosion/explosion-d10.png" id="12_67geu"]
+[ext_resource type="Texture2D" uid="uid://iuy4xnl3s5rc" path="res://assets/sprites/explosion/explosion-d11.png" id="13_45jbt"]
+[ext_resource type="Texture2D" uid="uid://b00jyixffcsif" path="res://assets/sprites/explosion/explosion-d12.png" id="14_utdh4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8uvf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jqc3e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_en1me")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7ycc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i3nxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_krrxm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_g6sie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rtwsb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kayke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lhle5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_67geu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_45jbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_utdh4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qpco2"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ee7e"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcjms"]
+bg_color = Color(0.174626, 0.174626, 0.174626, 1)
+
+[node name="Hell" type="Control"]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_right = -600.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_q5oxy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Control3" type="Control" parent="VBoxContainer"]
+z_index = 1
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Control3"]
+texture = ExtResource("3_c8mgh")
+centered = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer/Control3"]
+position = Vector2(133, 271.5)
+scale = Vector2(3.07812, 5.24219)
+sprite_frames = SubResource("SpriteFrames_a8uvf")
+frame = 7
+frame_progress = 0.723451
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(460, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Control"]
+texture = ExtResource("3_a07ha")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 21
+
+[node name="Control2" type="Control" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="VBoxContainer/MarginContainer/Control2"]
+z_index = 1
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+offset_right = 25.0
+offset_bottom = 25.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qpco2")
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/MarginContainer/Control2"]
+z_index = 1
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qpco2")
+
+[node name="Panel3" type="Panel" parent="VBoxContainer/MarginContainer/Control2"]
+z_index = 1
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_right = 25.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qpco2")
+
+[node name="Panel4" type="Panel" parent="VBoxContainer/MarginContainer/Control2"]
+z_index = 1
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qpco2")
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_0pi21")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ee7e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hcjms")
+text = "summon horros beyond
+your comprehension"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_j3kxn")
+volume_db = -10.4
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_6mfc6")
+volume_db = -11.886
+
+[connection signal="animation_finished" from="VBoxContainer/Control3/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/Control2/Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

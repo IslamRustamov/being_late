@@ -1,0 +1,221 @@
+[gd_scene load_steps=12 format=3 uid="uid://d2xvvt4dnlqw6"]
+
+[ext_resource type="Script" path="res://levels/intro/intro.gd" id="1_mftt8"]
+[ext_resource type="Texture2D" uid="uid://b8v0yrf3cw04o" path="res://assets/sprites/babash_face.png" id="2_148wd"]
+[ext_resource type="FontFile" uid="uid://bw2kmoygcoqte" path="res://assets/font/fffforward.ttf" id="2_cdcl6"]
+[ext_resource type="AudioStream" uid="uid://cut3x5gqosqvi" path="res://assets/sounds/babash_voice.wav" id="4_ci0nf"]
+[ext_resource type="AudioStream" uid="uid://pqqel21nbdkl" path="res://assets/sounds/papash_voice.wav" id="5_pl7rd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62cl7"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmyod"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws06m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2yxu"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dydo8"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_right = 1000
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyj3s"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_bottom_right = 1000
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mftt8")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_62cl7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -600.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(2.08165e-12, 500)
+layout_mode = 2
+
+[node name="CharacterSprite" type="Sprite2D" parent="Panel/VBoxContainer/MarginContainer3/Control"]
+texture = ExtResource("2_148wd")
+centered = false
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wmyod")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/MarginContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="NameLabel" type="Label" parent="Panel/VBoxContainer/MarginContainer2/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cdcl6")
+theme_override_font_sizes/font_size = 47
+text = "Babash"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 600)
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ws06m")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -25.0
+offset_right = 50.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="TextLabel" type="Label" parent="Panel/VBoxContainer/MarginContainer/Panel/MarginContainer"]
+custom_minimum_size = Vector2(1600, 400)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 33
+theme_override_fonts/font = ExtResource("2_cdcl6")
+theme_override_font_sizes/font_size = 45
+autowrap_mode = 2
+
+[node name="Arrow" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Arrow"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Arrow/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/separation = 0
+
+[node name="Panel2" type="Panel" parent="Panel/Arrow/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b2yxu")
+
+[node name="Panel" type="Panel" parent="Panel/Arrow/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dydo8")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/Arrow/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/separation = 0
+
+[node name="Panel2" type="Panel" parent="Panel/Arrow/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b2yxu")
+
+[node name="Panel" type="Panel" parent="Panel/Arrow/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jyj3s")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="PrintingTimer" type="Timer" parent="."]
+
+[node name="BabashPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ci0nf")
+volume_db = -10.0
+
+[node name="PapashPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_pl7rd")
+volume_db = -10.0
+
+[connection signal="gui_input" from="Panel/Arrow" to="." method="_on_arrow_gui_input"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="PrintingTimer" to="." method="_on_printing_timer_timeout"]
+[connection signal="finished" from="BabashPlayer" to="." method="_on_babash_player_finished"]
+[connection signal="finished" from="PapashPlayer" to="." method="_on_papash_player_finished"]

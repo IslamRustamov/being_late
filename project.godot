@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="being late to the classes"
-run/main_scene="res://level/level.tscn"
+run/main_scene="res://levels/intro/intro.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+config/windows_native_icon="res://assets/sprites/babash_face.png"
 
 [display]
 

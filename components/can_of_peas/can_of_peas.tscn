@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf8yadka31dby"]
+[gd_scene load_steps=8 format=3 uid="uid://bf8yadka31dby"]
 
-[ext_resource type="Texture2D" uid="uid://br1cpasbbmgc8" path="res://assets/sprites/can_of_peas.png" id="1_2msao"]
+[ext_resource type="Texture2D" uid="uid://br1cpasbbmgc8" path="res://assets/sprites/can_of_peas/can_of_peas.png" id="1_2msao"]
 [ext_resource type="Script" path="res://components/can_of_peas/can_of_peas.gd" id="1_capkc"]
 [ext_resource type="FontFile" uid="uid://bw2kmoygcoqte" path="res://assets/font/fffforward.ttf" id="2_gjr2u"]
+[ext_resource type="AudioStream" uid="uid://bo7fkfvhdw8ku" path="res://assets/sounds/power_up.wav" id="4_45roq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmhw8"]
 bg_color = Color(1, 1, 1, 1)
@@ -126,5 +127,9 @@ size_flags_vertical = 8
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/Control2"]
 texture = ExtResource("1_2msao")
 centered = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_45roq")
+volume_db = -10.0
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Control/Button" to="." method="_on_button_pressed"]

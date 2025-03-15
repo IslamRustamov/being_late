@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0g8sp8ak0ipy"]
+[gd_scene load_steps=10 format=3 uid="uid://b0g8sp8ak0ipy"]
 
 [ext_resource type="Texture2D" uid="uid://bhjlarexdpe84" path="res://assets/sprites/loss.png" id="1_fw570"]
 [ext_resource type="Script" path="res://components/loss/loss.gd" id="1_rfthd"]
 [ext_resource type="FontFile" uid="uid://bw2kmoygcoqte" path="res://assets/font/fffforward.ttf" id="2_m6b0a"]
+[ext_resource type="AudioStream" uid="uid://bqfhej6ro6mhd" path="res://assets/sounds/loss_one.mp3" id="4_jsk8v"]
+[ext_resource type="AudioStream" uid="uid://c15003ehrknbj" path="res://assets/sounds/loss_two.mp3" id="5_36ail"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do7rq"]
 bg_color = Color(0, 0, 0, 0.545098)
@@ -122,5 +124,11 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_kylqo")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kp8k4")
 text = "RESTART"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jsk8v")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_36ail")
 
 [connection signal="pressed" from="VBoxContainer/Control/Button" to="." method="_on_button_pressed"]

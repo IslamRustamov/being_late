@@ -1,0 +1,133 @@
+[gd_scene load_steps=18 format=3 uid="uid://ds73wx4bblifr"]
+
+[ext_resource type="FontFile" uid="uid://bw2kmoygcoqte" path="res://assets/font/fffforward.ttf" id="1_nc1ce"]
+[ext_resource type="Script" path="res://components/win/win.gd" id="1_xguk6"]
+[ext_resource type="Texture2D" uid="uid://by81q7234507q" path="res://assets/sprites/explosion/explosion-d1.png" id="3_pcdpl"]
+[ext_resource type="Texture2D" uid="uid://d15xndnpwxof" path="res://assets/sprites/explosion/explosion-d2.png" id="4_347p3"]
+[ext_resource type="Texture2D" uid="uid://dm1if14korvd1" path="res://assets/sprites/explosion/explosion-d3.png" id="5_5l33p"]
+[ext_resource type="Texture2D" uid="uid://b8n37mbghksqc" path="res://assets/sprites/explosion/explosion-d4.png" id="6_lcxdu"]
+[ext_resource type="Texture2D" uid="uid://c0mwomhujixue" path="res://assets/sprites/explosion/explosion-d5.png" id="7_5rcqh"]
+[ext_resource type="Texture2D" uid="uid://hwt8wusk5eso" path="res://assets/sprites/explosion/explosion-d6.png" id="8_oy5fg"]
+[ext_resource type="Texture2D" uid="uid://nuvigo23q072" path="res://assets/sprites/explosion/explosion-d7.png" id="9_j86a6"]
+[ext_resource type="Texture2D" uid="uid://xlhno3c0xaix" path="res://assets/sprites/explosion/explosion-d8.png" id="10_pipko"]
+[ext_resource type="Texture2D" uid="uid://daw1wjq4pkc6f" path="res://assets/sprites/explosion/explosion-d9.png" id="11_lh1fs"]
+[ext_resource type="Texture2D" uid="uid://dp04oks60yk2n" path="res://assets/sprites/explosion/explosion-d10.png" id="12_epxpm"]
+[ext_resource type="Texture2D" uid="uid://iuy4xnl3s5rc" path="res://assets/sprites/explosion/explosion-d11.png" id="13_gjv4j"]
+[ext_resource type="Texture2D" uid="uid://b00jyixffcsif" path="res://assets/sprites/explosion/explosion-d12.png" id="14_oeju8"]
+[ext_resource type="AudioStream" uid="uid://cfkjr3yjywuky" path="res://assets/sounds/explosion.wav" id="15_s5pi6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qb2h6"]
+bg_color = Color(0, 0, 0, 0.419608)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ok4yt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pcdpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_347p3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5l33p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lcxdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5rcqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_oy5fg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_j86a6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pipko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lh1fs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_epxpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gjv4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_oeju8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xguk6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qb2h6")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -371.5
+offset_top = -69.0
+offset_right = 371.5
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_nc1ce")
+theme_override_font_sizes/font_size = 100
+text = "YOU WON!!!!"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -350.0
+offset_right = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="Button" type="Button" parent="MarginContainer"]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_nc1ce")
+theme_override_font_sizes/font_size = 80
+text = "play again"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(417, 816)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_ok4yt")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_s5pi6")
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]

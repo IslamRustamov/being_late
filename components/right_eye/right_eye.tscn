@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://evuhwattptqn"]
+[gd_scene load_steps=7 format=3 uid="uid://evuhwattptqn"]
 
 [ext_resource type="Script" path="res://components/right_eye/right_eye.gd" id="1_5j3jv"]
 [ext_resource type="Texture2D" uid="uid://dt64mfxy3f5no" path="res://assets/sprites/right_eye/right_eye_1.png" id="2_lg4qk"]
 [ext_resource type="Texture2D" uid="uid://ygvuubp5lr1l" path="res://assets/sprites/right_eye/right_eye_2.png" id="3_dal3x"]
 [ext_resource type="Texture2D" uid="uid://otjfqarwn3gb" path="res://assets/sprites/right_eye/right_eye_3.png" id="4_hswom"]
+[ext_resource type="AudioStream" uid="uid://fhka1p5km0sl" path="res://assets/sounds/press.wav" id="5_g2hdk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x8ttu"]
 animations = [{
@@ -37,6 +38,10 @@ sprite_frames = SubResource("SpriteFrames_x8ttu")
 centered = false
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_g2hdk")
+volume_db = -10.0
 
 [connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

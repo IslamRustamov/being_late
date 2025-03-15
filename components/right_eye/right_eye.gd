@@ -7,6 +7,7 @@ signal right_eye_clicked
 
 @onready var timer: Timer = $Timer
 @onready var sprite: AnimatedSprite2D = $Control/AnimatedSprite2D
+@onready var player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var clicked_count = 0
 
@@ -25,6 +26,7 @@ func _on_control_gui_input(event):
 			right_eye_clicked.emit()
 			
 		if clicked_count < 13:
+			player.play()
 			clicked_count += 1
 		
 		redraw_sprite()
