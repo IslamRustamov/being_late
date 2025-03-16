@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://cob45jahvonlg"]
+
+[ext_resource type="Script" path="res://levels/end/end.gd" id="1_xd1gb"]
+[ext_resource type="FontFile" uid="uid://bw2kmoygcoqte" path="res://assets/font/fffforward.ttf" id="2_kclef"]
+[ext_resource type="AudioStream" uid="uid://c4kt0aqcy52qw" path="res://assets/sounds/whistle_song.mp3" id="2_yrjke"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pspu8"]
+bg_color = Color(7.14195e-08, 0.628103, 0.986203, 1)
+
+[node name="End" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xd1gb")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pspu8")
+
+[node name="Label" type="Label" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.5
+offset_top = -11.5
+offset_right = 36.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 34
+theme_override_fonts/font = ExtResource("2_kclef")
+theme_override_font_sizes/font_size = 70
+text = "Game by:
+Islam Rustamov
+Perseus the Cat"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_yrjke")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

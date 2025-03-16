@@ -99,29 +99,6 @@ theme_override_fonts/font = ExtResource("1_nc1ce")
 theme_override_font_sizes/font_size = 100
 text = "YOU WON!!!!"
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-z_index = 1
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -300.0
-offset_top = -350.0
-offset_right = 300.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_bottom = 50
-
-[node name="Button" type="Button" parent="MarginContainer"]
-custom_minimum_size = Vector2(600, 300)
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("1_nc1ce")
-theme_override_font_sizes/font_size = 80
-text = "play again"
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(417, 816)
 scale = Vector2(5, 5)
@@ -130,4 +107,6 @@ sprite_frames = SubResource("SpriteFrames_ok4yt")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_s5pi6")
 
-[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

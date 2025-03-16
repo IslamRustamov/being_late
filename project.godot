@@ -15,13 +15,20 @@ run/main_scene="res://levels/intro/intro.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 config/windows_native_icon="res://assets/sprites/babash_face.png"
+run/size/viewport_height=1800
+run/size/viewport_width=1800
+run/stretch/mode="disabled"
+run/stretch/scale=0.5
+run/stretch/aspect="keep"
 
 [display]
 
 window/size/viewport_width=1800
 window/size/viewport_height=1800
-window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
 mouse_cursor/tooltip_position_offset=Vector2(2.08165e-12, 2.08165e-12)
+window/main_scene="res://levels/intro/intro.tscn"
 
 [input]
 

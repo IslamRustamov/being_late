@@ -1,14 +1,19 @@
 extends Control
 class_name Win
 
-signal restart
-
 @onready var explosion = $AnimatedSprite2D
 @onready var player = $AudioStreamPlayer2D
+@onready var timer = $Timer
 
 var explosions = []
 
 func _ready():
+	timer.one_shot = true
+	
+	timer.wait_time = 3
+	
+	timer.start()
+	
 	explosion.position = Vector2(randi_range(400, 1400), randi_range(400, 1400))
 	
 	explosions.push_back(explosion)
@@ -29,11 +34,11 @@ func _ready():
 	explosion.play()
 
 	explosion.connect("animation_finished", _on_animation_finish)
-
-func _on_button_pressed():
-	restart.emit()
-
 	
 func _on_animation_finish():
 	for explosion_node in explosions:
 		explosion_node.queue_free()
+
+
+func _on_timer_timeout():
+	get_tree().change_scene_to_file("res://levels/pre_end/pre_end.tscn")

@@ -98,8 +98,6 @@ func _on_bar_bar_filled():
 	
 	win_node = win_scene.instantiate()
 	
-	win_node.connect("restart", _on_restart)
-	
 	add_child(win_node)
 
 func _on_countdowner_time_out():

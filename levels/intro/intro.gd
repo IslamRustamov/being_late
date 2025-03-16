@@ -83,8 +83,6 @@ func _ready():
 	timer.start()
 	
 	printing_timer.wait_time = 0.02
-	
-	print(get_viewport().get_visible_rect().size)
 
 func _on_arrow_gui_input(event):
 	if event.is_action_pressed("left_click"):
